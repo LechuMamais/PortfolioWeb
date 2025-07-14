@@ -1,48 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import VantaBackground from "@/components/VantaBackground";
 import { motion } from "framer-motion";
-import FOG from "vanta/dist/vanta.fog.min";
-import * as THREE from "three";
+
 
 export default function Hero() {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const [vantaEffect, setVantaEffect] = useState<any>(null);
-
-  useEffect(() => {
-    if (!vantaEffect && heroRef.current) {
-      const effect = FOG({
-        el: heroRef.current,
-        THREE,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.0,
-        minWidth: 200.0,
-        baseColor: 0x001011,
-        midtoneColor: 0x6ccff6,
-        lowlightColor: 0x001011,
-        highlightColor: 0x001011,
-        blurFactor: 0.9,
-        speed: 0.6,
-        zoom: 0.3,
-      });
-      setVantaEffect(effect);
-    }
-
-    return () => {
-      if (vantaEffect && typeof vantaEffect.destroy === "function") {
-        vantaEffect.destroy();
-      }
-    };
-  }, [vantaEffect]);
-
   return (
-    
-    <section ref={heroRef}
-      className="relative w-full min-h-screen flex items-center justify-center text-text-dark px-6"
-      id="hero"
-    >
+    <VantaBackground id="hero" className="text-text-dark">
       <div className="max-w-4xl mx-auto">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -52,7 +16,9 @@ export default function Hero() {
         >
           Fullstack Developer<br />
           que crea experiencias<br />
-          <span className="text-brand-blue">modernas</span> y <span className="text-brand-green">accesibles</span></motion.h1>
+          <span className="text-brand-blue">modernas</span> y{" "}
+          <span className="text-brand-green">accesibles</span>
+        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -75,9 +41,8 @@ export default function Hero() {
           >
             Ver proyectos
           </a>
-         
         </motion.div>
       </div>
-    </section>
+    </VantaBackground>
   );
 }

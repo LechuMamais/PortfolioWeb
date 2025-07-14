@@ -23,7 +23,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className={`${climateCrisis.className} ${openSans.className} bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark`}>{children}</body>
+      <body className={`${climateCrisis.className} ${openSans.className} bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark`}>
+        {children}
+      </body>
     </html>
   );
 }
