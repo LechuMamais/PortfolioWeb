@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-green: #98ce00;
+  --color-brand-blue: #6ccff6;
+  --color-neutral-black: #001011;
+  --color-neutral-gray: #757780;
+  --color-neutral-white: #fffffc;
+  --color-background-light: #fffffc;
+  --color-background-dark: #001011;
+  --color-text-light: #001011;
+  --color-text-dark: #fffffc;
+
+  --color-brand-green-dark: #729E04;
+  --color-brand-green-darker: #557A07;
+}
+
+* {
+  scroll-behavior: smooth;
+}
